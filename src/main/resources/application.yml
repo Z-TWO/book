@@ -5,9 +5,9 @@ spring:
   datasource:
     druid:
       username: root
-      password: wljsb402djc@@@
+      password: xxxxx
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://175.24.167.207:33061/share_book?useUnicode=true&characterEncoding=utf-8&useSSL=false&tinyInt1isBit=false
+      url: jdbc:mysql://xxxx:33061/share_book?useUnicode=true&characterEncoding=utf-8&useSSL=false&tinyInt1isBit=false
 
 # Mybatis
 mybatis:
