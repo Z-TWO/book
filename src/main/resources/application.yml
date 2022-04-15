@@ -1,0 +1,45 @@
+
+spring:
+  jackson:
+    default-property-inclusion: non_null
+  datasource:
+    druid:
+      username: root
+      password: wljsb402djc@@@
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://175.24.167.207:33061/share_book?useUnicode=true&characterEncoding=utf-8&useSSL=false&tinyInt1isBit=false
+
+# Mybatis
+mybatis:
+  type-aliases-package: com.ztwo.book.bean
+  mapper-locations: classpath:mappers/*Mapper.xml
+
+# Swagger
+swagger2:
+  enable: true
+
+# logging
+logging:
+  level:
+    com.ztwo.book.dao: debug
+
+# JWT
+jwt:
+  header: Authorization
+  secret: yeb-secret
+  #token有效期一天
+  expiration: 86400000
+  tokenHead: Bearer
+  account_user: ACCOUNT_USER
+  account_merchant: ACCOUNT_MERCHANT
+
+# Book
+book:
+  day: 7
+  cost: 0.5
+  dayTimeMillis: 86400000
+  maxBook: 3
+server:
+  port: 8081
+
+

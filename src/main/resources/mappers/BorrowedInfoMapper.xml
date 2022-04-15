@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztwo.book.dao.BorrowedInfoMapper">
+    <resultMap id="BaseResultMap" type="com.ztwo.book.bean.BorrowedInfo">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="book_id" jdbcType="INTEGER" property="bookId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="end_time" jdbcType="TIMESTAMP" property="endTime"/>
+        <result column="return_time" jdbcType="TIMESTAMP" property="returnTime"/>
+        <result column="charge" jdbcType="DECIMAL" property="charge"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+
+    <resultMap id="MyBorrowInfoMap" type="com.ztwo.book.bean.BorrowedInfo" extends="BaseResultMap">
+        <collection property="book" ofType="com.ztwo.book.bean.Book">
+            <result column="name" jdbcType="VARCHAR" property="name"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="MyAllBorrowInfoMap" type="com.ztwo.book.bean.BorrowedInfo" extends="MyBorrowInfoMap">
+        <collection property="user" ofType="com.ztwo.book.bean.User">
+            <result column="username" jdbcType="VARCHAR" property="username"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectBorrowInfoByUserId" resultMap="MyBorrowInfoMap">
+        select br.id,
+               br.user_id,
+               br.book_id,
+               br.create_time,
+               br.end_time,
+               br.return_time,
+               br.charge,
+               br.status,
+               b.name
+        from borrowed_info br
+                 join book b on br.book_id = b.id
+        where br.user_id = #{uid}
+        order by create_time desc
+    </select>
+
+    <select id="selectBorrowInfo" resultMap="MyAllBorrowInfoMap">
+        select br.id,
+               br.user_id,
+               br.book_id,
+               br.create_time,
+               br.end_time,
+               br.return_time,
+               br.charge,
+               br.status,
+               b.name,
+               u.username
+        from borrowed_info br
+                 join book b on br.book_id = b.id
+                 join user u on br.user_id = u.id
+        order by create_time
+    </select>
+</mapper>

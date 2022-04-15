@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztwo.book.dao.BookMapper">
+  <resultMap id="BaseResultMap" type="com.ztwo.book.bean.Book">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="press_name" jdbcType="VARCHAR" property="pressName" />
+    <result column="press_date" jdbcType="INTEGER" property="pressDate" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="current_num" jdbcType="INTEGER" property="currentNum" />
+    <result column="total_num" jdbcType="INTEGER" property="totalNum" />
+  </resultMap>
+</mapper>
