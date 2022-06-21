@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.ztwo</groupId>
     <artifactId>book</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>book</name>
     <description>book</description>
     <properties>
